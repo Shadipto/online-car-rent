@@ -1,0 +1,8 @@
+/public/uploads/profiles/*
+/public/uploads/cars/*
+/config/database.php
+.DS_Store
+*.log
+
+!/public/uploads/profiles/.gitkeep
+!/public/uploads/cars/.gitkeep
