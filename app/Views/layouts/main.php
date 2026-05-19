@@ -6,17 +6,18 @@
     <meta name="csrf-token" content="<?= e(Session::csrfToken()) ?>">
     <meta name="app-base-url" content="<?= e(base_url('/')) ?>">
     <title><?= e($title ?? app_config('name', 'Online Car Rent')) ?></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="<?= e(base_url('/assets/css/main.css')) ?>">
     <link rel="stylesheet" href="<?= e(base_url('/assets/css/auth.css')) ?>">
 </head>
 <body>
     <?php require app_path('Views/partials/navbar.php'); ?>
-
     <main class="site-main">
         <?php require app_path('Views/partials/flash.php'); ?>
         <?= $content ?>
     </main>
-
     <?php require app_path('Views/partials/footer.php'); ?>
     <script src="<?= e(base_url('/assets/js/validation.js')) ?>"></script>
     <script src="<?= e(base_url('/assets/js/auth.js')) ?>"></script>

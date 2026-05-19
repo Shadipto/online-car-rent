@@ -1,6 +1,6 @@
 <section class="page-header">
     <h1><?= $selectedType !== '' ? e($selectedType) : 'Cars' ?></h1>
-    <p class="muted">Browse cars by category. Ordering is reserved for Task 3.</p>
+    <p class="muted">Browse cars by category. </p>
 </section>
 
 <div class="category-bar" data-category-bar>

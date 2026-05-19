@@ -1,50 +1,49 @@
 function showFieldError(field, message) {
-    clearFieldError(field);
+  clearFieldError(field);
 
-    const error = document.createElement('p');
-    error.className = 'field-error';
-    error.textContent = message;
-    field.insertAdjacentElement('afterend', error);
+  const error = document.createElement("p");
+  error.className = "field-error";
+  error.textContent = message;
+  field.insertAdjacentElement("afterend", error);
 }
 
 function clearFieldError(field) {
-    const next = field.nextElementSibling;
+  const next = field.nextElementSibling;
 
-    if (next && next.classList.contains('field-error')) {
-        next.remove();
-    }
+  if (next && next.classList.contains("field-error")) {
+    next.remove();
+  }
 }
 
 function requireValue(form, name, message) {
-    const field = form.elements[name];
+  const field = form.elements[name];
 
-    if (!field || String(field.value).trim() !== '') {
-        return true;
-    }
+  if (!field || String(field.value).trim() !== "") {
+    return true;
+  }
 
-    showFieldError(field, message);
-    return false;
+  showFieldError(field, message);
+  return false;
 }
 
 function isEmail(value) {
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
 }
 
 async function fetchCarsByType(type) {
-    const baseUrl = document.querySelector('meta[name="app-base-url"]')?.content || `${window.location.origin}/`;
-    const url = new URL('api/cars', baseUrl);
+  let url = `${window.location.origin}/online-car-rent/public/api/cars`;
 
-    if (type) {
-        url.searchParams.set('type', type);
-    }
+  if (type) {
+    url += `?type=${encodeURIComponent(type)}`;
+  }
 
-    const response = await fetch(url.toString(), {
-        headers: { Accept: 'application/json' },
-    });
+  const response = await fetch(url, {
+    headers: { Accept: "application/json" },
+  });
 
-    if (!response.ok) {
-        return null;
-    }
+  if (!response.ok) {
+    return null;
+  }
 
-    return response.json();
+  return response.json();
 }
