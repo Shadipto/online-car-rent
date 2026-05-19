@@ -37,9 +37,22 @@
         </label>
 
         <label>
-            Phone
-            <input type="tel" name="phone" value="<?= e($old['phone'] ?? '') ?>" maxlength="20">
-        </label>
+    Phone
+    <div class="phone-group">
+        <span class="phone-prefix">+880</span>
+
+        <input
+            type="tel"
+            name="phone"
+            value="<?= e($old['phone'] ?? '') ?>"
+            maxlength="10"
+            pattern="^1[3-9]\d{8}$"
+            placeholder="1738037896"
+            title="Enter a valid Bangladeshi phone number"
+            required
+        >
+    </div>
+</label>
 
         <label>
             Password
